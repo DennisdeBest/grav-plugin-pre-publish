@@ -3,7 +3,7 @@ slug: pre-publish
 type: plugin
 version: 0.1.0
 description: Only display pages if the published at date is more then the current datetime
-icon: plug
+icon: clock-o
 author:
   name: Dennis de Best
   email: dennis@debest.fr
@@ -29,10 +29,6 @@ form:
         0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
-    text_var:
-      type: text
-      label: PLUGIN_PRE_PUBLISH.TEXT_VARIABLE
-      help: PLUGIN_PRE_PUBLISH.TEXT_VARIABLE_HELP
 
     filter.items:
       type: multilevel
