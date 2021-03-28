@@ -1,0 +1,42 @@
+name: Pre Publish
+slug: pre-publish
+type: plugin
+version: 0.1.0
+description: Only display pages if the published at date is more then the current datetime
+icon: plug
+author:
+  name: Dennis de Best
+  email: dennis@debest.fr
+homepage: https://github.com/dennisdebest/grav-plugin-pre-publish
+keywords: grav, plugin, prepublish
+bugs: https://github.com/dennisdebest/grav-plugin-pre-publish/issues
+docs: https://github.com/dennisdebest/grav-plugin-pre-publish/blob/develop/README.md
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.7.0' }
+
+form:
+  validation: loose
+  fields:
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    text_var:
+      type: text
+      label: PLUGIN_PRE_PUBLISH.TEXT_VARIABLE
+      help: PLUGIN_PRE_PUBLISH.TEXT_VARIABLE_HELP
+
+    filter.items:
+      type: multilevel
+      label: PLUGIN_PRE_PUBLISH.ITEMS
+      value_only: true
+      validate:
+        type: array
