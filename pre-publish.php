@@ -27,9 +27,6 @@ class PrePublishPlugin extends Plugin
         ];
     }
 
-    /**
-     * Initialize configuration
-     */
     public function onPluginsInitialized()
     {
         if ($this->isAdmin()) {
@@ -61,9 +58,6 @@ class PrePublishPlugin extends Plugin
         }
     }
 
-    /**
-     * Initialize the plugin
-     */
     public function onCollectionProcessed(Event $event): void
     {
         /** @var Collection $collection */
@@ -73,6 +67,12 @@ class PrePublishPlugin extends Plugin
         foreach ($collection as $collectionPage) {
             $published = $collectionPage->published();
             $publishedDate = $collectionPage->publishDate();
+            $header = $collectionPage->header();
+            //Check if the disable_pre_persist has been set in the pages header and if it is true
+            $disable = (property_exists($header, 'disable_pre_persist') && $header->disable_pre_persist);
+            //If that is the case go to the next page in the collection
+            if($disable) continue;
+            //Else check the published state and the dates
             if ($published && $publishedDate && ($publishedDate > (new \DateTime())->getTimestamp())) {
                 $collection->remove($collectionPage->path());
             }

@@ -1,7 +1,7 @@
 name: Pre Publish
 slug: pre-publish
 type: plugin
-version: 0.1.0
+version: 0.2.0
 description: Only display pages if the published at date is more then the current datetime
 icon: clock-o
 author:

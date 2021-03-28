@@ -51,6 +51,14 @@ This plugin will allow you to set pages to be published at a specific time.
 If a page that is part of the collection of one of the pages in the filter, and it is set as **published: true**
 remove it from the collection if it has a **published_date** greater than the current date.
 
+If you want to disable this plugin for a specific page you can add 
+
+```yaml
+disable_pre_persist: true
+```
+
+in the header of that page.
+
 ## To Do
 
 - [ ] Add cache
